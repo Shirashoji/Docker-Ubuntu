@@ -2,8 +2,8 @@ FROM ubuntu:latest
 
 CMD ["bash"]
 ARG DOCKER_UID=1000
-ARG DOCKER_USER=pg-user
-ARG DOCKER_PASSWORD=pg-user
+ARG DOCKER_USER=is-user
+ARG DOCKER_PASSWORD=is-user
 ENV TZ=Asia/Tokyo
 ENV TERM=xterm-256color
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime 
@@ -13,6 +13,7 @@ RUN apt-get update
 RUN apt-get install -y tzdata build-essential dnsutils emacs file git \
     iputils-ping net-tools sudo telnet traceroute vim wget zip curl \
     net-tools traceroute inetutils-traceroute iproute2 sqlite3 \
+    openjdk-17-jdk \
     language-pack-ja-base language-pack-ja 
 RUN apt-get -y clean 
 RUN rm -rf /var/lib/apt/lists/*
